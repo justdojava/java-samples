@@ -1,5 +1,6 @@
 package com.spring.async;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -13,8 +14,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class AsyncConfiguration {
 
 
-    //@Bean
-    public ThreadPoolTaskExecutor taskExecutor112312() {
+    @Bean
+    public ThreadPoolTaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setThreadNamePrefix("task-Executor-");
         executor.setMaxPoolSize(10);

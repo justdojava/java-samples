@@ -28,7 +28,7 @@ public class EmailService {
      * @throws InterruptedException
      */
     @SneakyThrows
-    @Async
+    @Async("taskExecutor")
     public void sendEmailAsync() {
         log.info("使用 Spring 异步任务发送邮件示例");
         TimeUnit.SECONDS.sleep(2l);
@@ -41,8 +41,6 @@ public class EmailService {
     }
 
 
-
-    @Async
     @SneakyThrows
     public Future<String> sendEmailAsyncWithResult() {
         log.info("使用 Spring 异步任务发送邮件，并且获取任务返回结果示例");
@@ -72,9 +70,15 @@ public class EmailService {
     @Async
     @SneakyThrows
     public ListenableFuture<String> sendEmailAsyncWithListenableFuture() {
+        sendEmailAsync();
         log.info("使用 Spring 异步任务发送邮件，并且获取任务返回结果示例");
         TimeUnit.SECONDS.sleep(2l);
         return AsyncResult.forValue("success");
     }
+
+
+
+
+
 
 }
