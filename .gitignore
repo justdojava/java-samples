@@ -181,3 +181,6 @@ fabric.properties
 hs_err_pid*
 
 /temp/
+/spring-session-example/mvnw
+/spring-session-example/mvnw.cmd
+/spring-session-example/.mvn/
