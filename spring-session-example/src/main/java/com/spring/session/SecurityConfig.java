@@ -53,10 +53,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // 静态资源，比如 css,js 无需登录鉴权
                 .anyRequest().authenticated() // 其他页面需要登录鉴权
         ).formLogin((formLogin) -> formLogin  // 自定义登录页面
-                .loginPage("/login")
+                .loginPage("/login") // 登录页
+                .loginProcessingUrl("/auth/login") // 自定义登录请求地址
                 .permitAll()// 登录页当然无需鉴权了，不然不就套娃了吗？
         ).logout(LogoutConfigurer::permitAll // 登出页面
-        ).rememberMe(rememberMe -> rememberMe.key("test").tokenValiditySeconds(3600 * 12)) // 记住我，本地生成 cookie 包含用户信息
+        ).rememberMe(rememberMe -> rememberMe
+                .rememberMeCookieName("test-remember") // 自定义记住我 cookie 名
+                .key("test") // 盐值
+                .tokenValiditySeconds(3600 * 12)) // 记住我，本地生成 cookie 包含用户信息
 
         ;
     }
