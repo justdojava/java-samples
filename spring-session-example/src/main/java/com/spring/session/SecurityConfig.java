@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests((authorize) -> authorize
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // 静态资源，比如 css,js 无需登录鉴权
-                .anyRequest().authenticated() // 其他页面需要登录鉴权
+                .anyRequest().permitAll() // 其他页面需要登录鉴权
         ).formLogin((formLogin) -> formLogin  // 自定义登录页面
                 .loginPage("/login") // 登录页
                 .loginProcessingUrl("/auth/login") // 自定义登录请求地址
