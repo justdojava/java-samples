@@ -3,9 +3,11 @@ package com.just.doone.example;
 import com.just.doone.example.domain.Course;
 import com.just.doone.example.domain.StudentDO;
 import com.just.doone.example.domain.StudentDTO;
+import lombok.SneakyThrows;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
+import org.apache.commons.lang3.time.DateUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -34,18 +36,20 @@ public class ApacheBeanUtilsExample {
 
         StudentDO studentDO = new StudentDO();
 
-        BeanUtils.copyProperties(studentDO, studentDTO);
+//        BeanUtils.copyProperties(studentDO, studentDTO);
 
         ConvertUtils.register(new Converter() {
+            @SneakyThrows
             @Override
-            public <T> T convert(Class<T> type, Object value) {
+            public <Date> Date convert(Class<Date> type, Object value) {
                 if (value == null) {
                     return null;
                 }
                 if (value instanceof String) {
                     String str = (String) value;
-                    
+                    return (Date) DateUtils.parseDate(str, "yyyy-MM-dd");
                 }
+                return null;
 
 
             }
