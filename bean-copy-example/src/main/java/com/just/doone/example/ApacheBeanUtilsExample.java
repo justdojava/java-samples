@@ -36,8 +36,6 @@ public class ApacheBeanUtilsExample {
 
         StudentDO studentDO = new StudentDO();
 
-//        BeanUtils.copyProperties(studentDO, studentDTO);
-
         ConvertUtils.register(new Converter() {
             @SneakyThrows
             @Override
@@ -59,6 +57,7 @@ public class ApacheBeanUtilsExample {
         BeanUtils.copyProperties(studentDO, studentDTO);
 
         System.out.println(studentDO);
+
     }
 }
 
