@@ -10,7 +10,11 @@ import lombok.Data;
  */
 @Data
 public class Course {
+
     private String name;
+
+    public Course() {
+    }
 
     public Course(String name) {
         this.name = name;

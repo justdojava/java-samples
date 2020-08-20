@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <!-- 类级别的日期转换，默认使用这个格式转换    -->
+    <mapping date-format="yyyy-MM-dd HH:mm:ss">
+        <class-a>com.just.doone.example.domain.StudentDTO</class-a>
+        <class-b>com.just.doone.example.domain.StudentDO</class-b>
+        <!-- 在下面指定字段名不一致的映射关系       -->
+        <field>
+            <a>no</a>
+            <b>number</b>
+        </field>
+
+        <field>
+            <!-- 字段级别的日期转换，将会覆盖字段上的转换            -->
+            <a date-format="yy-MM-dd">createDate</a>
+            <b>createDate</b>
+        </field>
+    </mapping>
+</mappings>
