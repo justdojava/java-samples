@@ -5,6 +5,8 @@ import com.just.doone.example.domain.StudentDO;
 import com.just.doone.example.domain.StudentDTO;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.converter.ConverterFactory;
+import ma.glasnost.orika.converter.builtin.DateToStringConverter;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 import java.util.ArrayList;
@@ -31,6 +33,8 @@ public class OrikaExample {
         studentDTO.setCreateDate("2020-08-08");
 
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+        ConverterFactory converterFactory = mapperFactory.getConverterFactory();
+        converterFactory.registerConverter(new DateToStringConverter("yyyy-MM-dd"));
         mapperFactory.classMap(StudentDTO.class, StudentDO.class)
                 .field("no", "number")
                 .byDefault()
