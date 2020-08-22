@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class DozerExample {
     public static void main(String[] args) throws FileNotFoundException {
+        dozerWithAnnotations();
+    }
+
+    public static void dozerWithXML() {
         StudentDTO studentDTO = new StudentDTO();
         studentDTO.setName("阿粉");
         studentDTO.setAge(18);
@@ -29,10 +33,34 @@ public class DozerExample {
 
         DozerBeanMapper mapper = new DozerBeanMapper();
         List<String> mappingFiles = new ArrayList<>();
-        mappingFiles.add("dozer/dozer-mapping.xml");
+        mappingFiles.add("dozer/dozer-Mapperpping.xml");
         mapper.setMappingFiles(mappingFiles);
         StudentDO studentDO =
                 mapper.map(studentDTO, StudentDO.class);
         System.out.println(studentDO);
     }
+
+    public static void dozerWithAnnotations() {
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setName("阿粉");
+        studentDTO.setAge(18);
+        studentDTO.setNo("6666");
+
+        List<String> subjects = new ArrayList<>();
+        subjects.add("math");
+        subjects.add("english");
+        studentDTO.setSubjects(subjects);
+        studentDTO.setCourse(new Course("CS-1"));
+        // 注释掉，防止时间转化
+//        studentDTO.setCreateDate("2020-08-08");
+
+        DozerBeanMapper mapper = new DozerBeanMapper();
+
+        StudentDO studentDO =
+                mapper.map(studentDTO, StudentDO.class);
+        System.out.println(studentDO);
+
+    }
+
+
 }

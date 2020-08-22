@@ -16,12 +16,11 @@ public class StudentDTO {
     private String name;
 
     private Integer age;
-
+    @org.dozer.Mapping("number")
     private String no;
 
     private List<String> subjects;
 
     private Course course;
-
     private String createDate;
 }

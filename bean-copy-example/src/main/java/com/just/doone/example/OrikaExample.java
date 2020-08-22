@@ -21,7 +21,7 @@ import java.util.List;
 public class OrikaExample {
     public static void main(String[] args) {
         StudentDTO studentDTO = new StudentDTO();
-        studentDTO.setName("阿粉");
+//        studentDTO.setName("阿粉");
         studentDTO.setAge(18);
         studentDTO.setNo("6666");
 
@@ -36,15 +36,12 @@ public class OrikaExample {
         ConverterFactory converterFactory = mapperFactory.getConverterFactory();
         converterFactory.registerConverter(new DateToStringConverter("yyyy-MM-dd"));
         mapperFactory.classMap(StudentDTO.class, StudentDO.class)
+                .mapNulls(false).mapNullsInReverse(false)
                 .field("no", "number")
                 .byDefault()
                 .register();
-
-
         MapperFacade mapper = mapperFactory.getMapperFacade();
-
         StudentDO studentDO = mapper.map(studentDTO, StudentDO.class);
-
         System.out.println(studentDO);
 
     }
