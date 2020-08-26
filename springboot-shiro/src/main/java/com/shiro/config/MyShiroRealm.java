@@ -1,15 +1,13 @@
 package com.shiro.config;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UnknownAccountException;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.shiro.model.Permission;
+import com.shiro.model.Role;
+import com.shiro.model.User;
+import com.shiro.service.PermissionService;
+import com.shiro.service.RoleService;
+import com.shiro.service.UserService;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -18,13 +16,9 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.shiro.model.Permission;
-import com.shiro.model.Role;
-import com.shiro.model.User;
-import com.shiro.service.PermissionService;
-import com.shiro.service.RoleService;
-import com.shiro.service.UserService;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class MyShiroRealm extends AuthorizingRealm {
 	@Autowired
