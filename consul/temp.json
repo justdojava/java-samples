@@ -1,0 +1,27 @@
+[
+    {
+        "key": "redis/config/password",
+        "flags": 0,
+        "value": "MTIzNDU2"
+    },
+    {
+        "key": "redis/config/username",
+        "flags": 0,
+        "value": "U2lsZW5jZQ=="
+    },
+    {
+        "key": "redis/zk/",
+        "flags": 0,
+        "value": ""
+    },
+    {
+        "key": "redis/zk/password",
+        "flags": 0,
+        "value": "NDU0NjU="
+    },
+    {
+        "key": "redis/zk/username",
+        "flags": 0,
+        "value": "ZGZhZHNm"
+    }
+]

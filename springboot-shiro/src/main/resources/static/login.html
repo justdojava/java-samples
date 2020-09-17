@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/holder.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.container {}
+			
+			.form {
+				float: left;
+				width: 381px;
+				height: 324px;
+				padding-top: 150px;
+				background: no-repeat;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function() {
+				
+			})
+
+			function login() {
+				var userName = $("#userName").val();
+				var password = $("#password").val();
+				$.ajax({
+					type: "post",
+					url: "./login",
+					data: "username=" + userName + "&password=" + password,
+					success: function(res) {
+						alert(res);
+						if(res=="登录成功"){
+							window.location = "main.html";
+						}
+						
+					}
+				});
+			}
+
+		
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 form">
+					<form role="form" class="">
+						<div class="form-group">
+							<label for="exampleInputEmail1">UserName</label> <input type="text" class="form-control" id="userName" placeholder="UserName">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label> <input type="password" class="form-control" id="password" placeholder="Password">
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default col-md-offset-2" onclick="login()">login</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
