@@ -10,6 +10,7 @@
         <module>learn-java-io</module>
         <module>bean-copy-example</module>
         <module>redis-pubsub</module>
+        <module>spring-strategy</module>
     </modules>
     <name>java-samples</name>
     <description>Java 极客技术文章源码</description>
