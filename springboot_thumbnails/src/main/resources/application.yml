@@ -1,0 +1,9 @@
+server:
+  port: 8082
+
+spring:
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+ 
