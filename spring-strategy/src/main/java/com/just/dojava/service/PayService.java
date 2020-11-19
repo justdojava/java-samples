@@ -2,7 +2,6 @@ package com.just.dojava.service;
 
 import com.just.dojava.service.domain.PayRequest;
 import com.just.dojava.service.domain.PayResult;
-import com.just.dojava.service.enums.ChannelEnum;
 
 /**
  * @author andyXu xu9529@gmail.com
@@ -13,6 +12,6 @@ public interface PayService {
     PayResult epay(PayRequest request);
 
 
-    ChannelEnum channel();
+    String channel();
 
 }
